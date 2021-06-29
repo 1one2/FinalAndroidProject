@@ -206,8 +206,7 @@ public class Game extends AppCompatActivity {
                     board.initBoard();
                     adapter.notifyDataSetChanged();
 
-                    timer.setBase(SystemClock.elapsedRealtime());
-                    timer.start();
+                    isFirstMove = true;
                     alreadySubmitted = false;
                 }
             }

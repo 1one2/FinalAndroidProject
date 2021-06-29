@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LightsOut">
-        <activity android:name=".activities.Game"></activity>
+        <activity android:name=".activities.Ranking"></activity>
+        <activity android:name=".activities.Game" />
         <activity android:name=".activities.Menu" />
         <activity android:name=".activities.Authentication">
             <intent-filter>

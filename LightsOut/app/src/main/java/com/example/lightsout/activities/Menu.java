@@ -63,9 +63,10 @@ public class Menu extends AppCompatActivity {
         //region INTENTS
 
         playIntent = new Intent(this,Game.class);
-
         playIntent.putExtra("playerName",playerName);
-        //rankingIntent = new Intent(this,Ranking.class);
+
+        rankingIntent = new Intent(this,Ranking.class);
+        rankingIntent.putExtra("playerName",playerName);
        // aboutIntent = new Intent(this,About.class);
 
         //endregion

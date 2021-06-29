@@ -3,7 +3,7 @@ package com.example.lightsout.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -12,15 +12,15 @@ import android.view.ViewGroup;
 
 import com.example.lightsout.ApplicationController;
 import com.example.lightsout.R;
-import com.example.lightsout.activities.Game;
-import com.example.lightsout.adapters.LightAdapter;
+import com.example.lightsout.activities.Ranking;
+import com.example.lightsout.adapters.RankingEntryAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link GameFragment#newInstance} factory method to
+ * Use the {@link RankingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class GameFragment extends Fragment {
+public class RankingFragment extends Fragment {
 
 
     //region Non-Important
@@ -41,24 +41,32 @@ public class GameFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment GameFragment.
+     * @return A new instance of fragment RankingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static GameFragment newInstance(String param1, String param2) {
-        GameFragment fragment = new GameFragment();
+    public static RankingFragment newInstance(String param1, String param2) {
+        RankingFragment fragment = new RankingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
+
     //endregion
 
-    private LightAdapter adapter;
     private View view;
-    private Game parent;
+
+    private RankingEntryAdapter adapter;
+
+    private Ranking parent;
 
     private RecyclerView recyclerView;
+
+
+    public RankingFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,28 +77,27 @@ public class GameFragment extends Fragment {
         }
     }
 
-    public GameFragment() {
-        // Required empty public constructor
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_game, container, false);
+        view = inflater.inflate(R.layout.fragment_ranking, container, false);
         initializeViews();
         return view;
     }
 
-    public void initializeViews()
+    void initializeViews()
     {
-        parent = (Game)getActivity();
+        parent = (Ranking)getActivity();
 
         adapter = parent.getAdapter();
 
-        recyclerView = view.findViewById(R.id.gameRecyclerView);
-        GridLayoutManager layout = new GridLayoutManager(ApplicationController.getInstance(),5);
-        recyclerView.setLayoutManager(layout);
-        recyclerView.setAdapter(adapter);
+        recyclerView = view.findViewById(R.id.rankingRecyclerView);
 
+        LinearLayoutManager layout = new LinearLayoutManager(ApplicationController.getInstance());
+
+        recyclerView.setLayoutManager(layout);
+
+        recyclerView.setAdapter(adapter);
     }
 }

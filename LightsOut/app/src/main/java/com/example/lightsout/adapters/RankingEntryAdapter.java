@@ -93,7 +93,7 @@ public class RankingEntryAdapter extends RecyclerView.Adapter<RankingEntryAdapte
             }
             place.setText(placee);
             playerName.setText(entry.playerName);
-            time.setText(Long.toString(entry.time) + "s");
+            time.setText(Long.toString(entry.time/1000) + "." + Long.toString(entry.time%1000) + "s");
         }
     }
 }
