@@ -1,6 +1,10 @@
 package com.example.lightsout.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+import androidx.work.WorkRequest;
+import androidx.work.Worker;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.lightsout.ApplicationController;
 import com.example.lightsout.R;
 import com.example.lightsout.interfaces.OnItemClickListener;
+import com.example.lightsout.workers.ShowWorker;
 
 public class Menu extends AppCompatActivity {
 
@@ -85,7 +91,12 @@ public class Menu extends AppCompatActivity {
                 else if(view.getId() == R.id.menuAbout)
                     startActivity(aboutIntent);
                 else if(view.getId() == R.id.menuExit)
+                {
+                    WorkRequest request =
+                            new OneTimeWorkRequest.Builder(ShowWorker.class).build();
+                    WorkManager.getInstance(ApplicationController.getInstance()).enqueue(request);
                     finish();
+                }
             }
         };
 
