@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Light`s Out</string>
+    <string name="play">Play</string>
+    <string name="ranking">Ranking</string>
+    <string name="about">About</string>
+    <string name="exit">Exit</string>
+    <string name="pause">Pause</string>
+    <string name="submit">Submit \n your time</string>
+    <string name="restart">Restart</string>
+    <string name="paused">Game is paused</string>
+    <string name="resume">Resume</string>
+    <string name="hint">Enter your name</string>
+    <string name="refresh">Click to refresh</string>
+    <string name="enter_name">Enter your name:</string>
+    <string name="enter_name_hint">This will be the displayed name on the ranking system.</string>
+</resources>
